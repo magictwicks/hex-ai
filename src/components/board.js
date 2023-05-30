@@ -2,46 +2,85 @@ import { useState } from "react";
 import Hexagon from './hexagon.js';
 
 const Color = {
-  BLUE : 1,
-  RED : -1, 
-  BLUE_EDGE: 2,
-  RED_EDGE: -2 
+    BLUE : 1,
+    RED : -1 ,
+    BLUE_PATH : 2,
+    RED_PATH : -2 
 } 
 
-export default function Board(){
-    const SIZE = 8;
+function adjacentTiles(row, column){
+    let adjTiles = [
+        [row-1, column],
+        [row-1, column+1],
+        [row, column-1],
+        [row,column+1],
+        [row+1,column-1],
+        [row+1, column]
+    ]
+    return adjTiles.filter(item => {
+        return (item[0] >= 0 && item[0] < 8) && (item[1] >= 0 && item[1] < 8);
+    });
+}
 
-    const [board, setBoard] = useState(Array(8).fill(0).map(() => Array(8).fill(0)));
-    const [blueTurn, takeTurn] = useState(true);
-    
-    function hexClicked(row, col){  
-      
-      // check if the tile is empty
-      if (board[row][col] !== 0){
-         return;
-      }
-
-      // deep copy of 2d board array
-      let newBoard = board.map((innerArray) => [...innerArray]);
-
-      // sets the tile color if piece has not already been placed
-      if (blueTurn){
-        if (row === 0 || row === SIZE - 1){
-          newBoard[row][col] = Color.BLUE_EDGE;
-
-          // TODO: code that propogates
-        }
-        newBoard[row][col] = Color.BLUE;
-      }
-      else {
-        newBoard[row][col] = Color.RED;
-      }
-
-      // re-renders the board
-      setBoard(newBoard);
-      takeTurn(!blueTurn)
+function updateTiles(board, row, col, turn){
+    //Update given tile
+    const COLOR_PATH = 2 * turn;
+    const adjTiles = adjacentTiles(row, col);
+    board[row][col] = turn;
+    if ((turn > 0 && row === 0) || (turn < 0 && col === 0)){
+        board[row][col] = COLOR_PATH;
     }
-    
+
+    adjTiles.forEach((adjTile) => {
+        if (board[adjTile[0]][adjTile[1]] === COLOR_PATH){
+            board[row][col] = COLOR_PATH;
+        }
+    });
+
+    //Exit if there is no path to propagate
+    if (board[row][col] !== COLOR_PATH){
+        return board;
+    }
+
+    //Recursively update all touching tiles
+    adjTiles.forEach((adjTile) => {
+        if (board[adjTile[0]][adjTile[1]] === turn){
+            updateTiles(board, adjTile[0], adjTile[1], turn);
+        }
+    });
+    return board;
+}
+
+
+export default function Board({setWinState}){
+    const [board, setBoard] = useState(Array(8).fill(0).map(() => Array(8).fill(0)));
+    const [turn, takeTurn] = useState(Color.BLUE);
+
+    function hexClicked(row, col){  
+
+        if (board[row][col] !== 0){
+            return;
+        }
+
+        // deep copy of 2d board array
+        let newBoard = board.map((innerArray) => [...innerArray]);
+
+        updateTiles(newBoard, row, col, turn, setWinState);
+        console.log(board);
+
+        // re-renders the board
+        setBoard(newBoard);
+        takeTurn(turn * -1);
+
+        //Checks for a winner
+        for (let i = 0; i < 8; i++){
+            if(newBoard[7][i] === Color.BLUE_PATH || newBoard[i][7] === Color.RED_PATH){
+                setWinState(false);
+                break;
+            }
+        }
+    }
+
     return(
         <div className="board">
             <div className='hex-row'>
@@ -124,25 +163,6 @@ export default function Board(){
                 <Hexagon color={board[7][6]} hexClicked={() => hexClicked(7, 6)}/>
                 <Hexagon color={board[7][7]} hexClicked={() => hexClicked(7, 7)}/>
             </div>
-                {/* <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[0][1]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[0][2]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[0][3]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[0][4]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[0][5]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[0][6]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[0][7]} setColor={setTile}hexClicked={hexClicked}/>
-            </div>
-            
-            <div className='hex-row'>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[1][0]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[1][1]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[1][2]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[1][3]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[1][4]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[1][5]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[1][6]} setColor={setTile}hexClicked={hexClicked}/>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[1][7]} setColor={setTile}hexClicked={hexClicked}/>
-            </div> */}
         </div>
     );
 }
