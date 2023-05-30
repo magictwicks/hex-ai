@@ -1,20 +1,38 @@
 import { useState } from "react";
 import Hexagon from './hexagon.js';
 
+const Color = {
+  BLUE : 1,
+  RED : -1 
+} 
+
 export default function Board(){
     //const [board, setTile] = useState(Array.from({ length: 8 }, () => Array(8).fill(0))); 
-    const [board, setTile] = useState(Array(8).map(() => Array(8).fill(0)));
+    const [board, setBoard] = useState(Array(8).map(() => Array(8).fill(0)));
 
     const [blueTurn, takeTurn] = useState(true);
     
-    function hexClicked(){
-        
+    function hexClicked(row, col){  
+      
+      // deep copy of 2d board array
+      let newBoard = board.map((innerArray) => [...innerArray]);
+
+      if (blueTurn){
+        newBoard[row][col] = Color.BLUE;
+      }
+      else {
+        newBoard[row][col] = Color.RED;
+      }
+      
+      // re-renders the board
+      setBoard(newBoard);
+      takeTurn(!blueTurn)
     }
     
     return(
         <div className="board">
             <div className='hex-row'>
-                <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={0} setColor={setTile} hexClicked={hexClicked}/>
+                <Hexagon color={board[0][0]} hexClicked={() => hexClicked(0, 0)}/>
             </div>
                 {/* <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[0][1]} setColor={setTile}hexClicked={hexClicked}/>
                 <Hexagon blueTurn={blueTurn} takeTurn={takeTurn} color={board[0][2]} setColor={setTile}hexClicked={hexClicked}/>
