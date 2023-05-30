@@ -75,7 +75,7 @@ export default function Board({setWinState}){
         //Checks for a winner
         for (let i = 0; i < 8; i++){
             if(newBoard[7][i] === Color.BLUE_PATH || newBoard[i][7] === Color.RED_PATH){
-                setWinState(false);
+                setWinState(true);
                 break;
             }
         }
