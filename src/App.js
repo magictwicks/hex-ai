@@ -1,4 +1,4 @@
-import Board from './components/hexagon.js'
+import Board from './components/board.js'
 import './App.css';
 
 function App() {
