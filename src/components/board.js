@@ -8,7 +8,9 @@ const Color = {
 
 export default function Board(){
     //const [board, setTile] = useState(Array.from({ length: 8 }, () => Array(8).fill(0))); 
-    const [board, setBoard] = useState(Array(8).map(() => Array(8).fill(0)));
+    const [board, setBoard] = useState(Array(8).fill(0).map(() => Array(8).fill(0)));
+    console.log("test")
+    console.log(board)
 
     const [blueTurn, takeTurn] = useState(true);
     
@@ -23,7 +25,7 @@ export default function Board(){
       else {
         newBoard[row][col] = Color.RED;
       }
-      
+
       // re-renders the board
       setBoard(newBoard);
       takeTurn(!blueTurn)
