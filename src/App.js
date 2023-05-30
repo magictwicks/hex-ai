@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import hex from './hexagon-geometrical-shape-outline-svgrepo-com.svg'
+// import { useState } from 'react';
+
+function MyButton(){
+    return(
+    <button>This is my button</button>
+    );
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                <div className="hex-row">
+                <img src={hex} alt="" class="hexagon"></img>
+                <img src={hex} alt="" class="hexagon"></img>
+                <img src={hex} alt="" class="hexagon"></img>
+                <img src={hex} alt="" class="hexagon"></img>
+                <img src={hex} alt="" class="hexagon"></img>
+                <img src={hex} alt="" class="hexagon"></img>
+                <img src={hex} alt="" class="hexagon"></img>
+                <img src={hex} alt="" class="hexagon"></img>
+                </div>
+                <MyButton />
+            </header>
+        </div>
+    );
 }
 
 export default App;
