@@ -16,9 +16,15 @@ export default function Board(){
     
     function hexClicked(row, col){  
       
+      // check if the tile is empty
+      if (board[row][col] !== 0){
+         return;
+      }
+
       // deep copy of 2d board array
       let newBoard = board.map((innerArray) => [...innerArray]);
 
+      // sets the tile color if piece has not already been placed
       if (blueTurn){
         newBoard[row][col] = Color.BLUE;
       }
