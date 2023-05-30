@@ -3,15 +3,15 @@ import Hexagon from './hexagon.js';
 
 const Color = {
   BLUE : 1,
-  RED : -1 
+  RED : -1, 
+  BLUE_EDGE: 2,
+  RED_EDGE: -2 
 } 
 
 export default function Board(){
-    //const [board, setTile] = useState(Array.from({ length: 8 }, () => Array(8).fill(0))); 
-    const [board, setBoard] = useState(Array(8).fill(0).map(() => Array(8).fill(0)));
-    console.log("test")
-    console.log(board)
+    const SIZE = 8;
 
+    const [board, setBoard] = useState(Array(8).fill(0).map(() => Array(8).fill(0)));
     const [blueTurn, takeTurn] = useState(true);
     
     function hexClicked(row, col){  
@@ -26,6 +26,11 @@ export default function Board(){
 
       // sets the tile color if piece has not already been placed
       if (blueTurn){
+        if (row === 0 || row === SIZE - 1){
+          newBoard[row][col] = Color.BLUE_EDGE;
+
+          // TODO: code that propogates
+        }
         newBoard[row][col] = Color.BLUE;
       }
       else {

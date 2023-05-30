@@ -1,4 +1,6 @@
 :root {
+
+    --hex-size: 100px;
     --margin-value: -8px;
     --top-margin: -2%;
 }
@@ -17,10 +19,9 @@ code {
 }
 
 .hexagon {
-    width: 100px;
-    height: 100px;
+    width: var(--hex-size);
+    height: var(--hex-size);
 }
-
 
 .hex-row {
     display: flex;
@@ -36,6 +37,8 @@ code {
 .board{
     display: flex;
     flex-direction: column;
+    margin-right: 20%;
+    justify-content: center;
 }
 
 .hex-row:nth-child(2){
@@ -60,6 +63,62 @@ code {
     margin-left: 43.75%;
 }
 
-.board{
-    margin-right: 20%;
+.board-container {
+    display: flex;
+    width: 70vw;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+}
+
+.game-container {
+    display : flex;
+    width: 100%;
+    height: 100%; 
+    background-color: rgb(156, 225, 201);
+    flex-direction: row;
+}
+
+.hud-container {
+    display: flex;
+    align-self: center;
+    width: 20vw;
+    height: 80vh;
+    background-color: rgb(88, 207, 171);
+    margin-left: 2vw;
+}
+
+.hud-container > * {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 75px;
+}
+.modal {
+    width: 60vw;
+    height: 40vh;
+    position: absolute;
+    background-color: lightgrey;
+    border-radius: 25px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); align-self: center;
+    justify-self: center;
+    display: flex;
+}
+
+.modal-close {
+    position: absolute;
+    right: 2%;
+    top: 5%
+}
+
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
 }
