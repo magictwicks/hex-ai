@@ -13,17 +13,88 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <div className="hex-row">
-                <img src={hex} alt="" class="hexagon"></img>
-                <img src={hex} alt="" class="hexagon"></img>
-                <img src={hex} alt="" class="hexagon"></img>
-                <img src={hex} alt="" class="hexagon"></img>
-                <img src={hex} alt="" class="hexagon"></img>
-                <img src={hex} alt="" class="hexagon"></img>
-                <img src={hex} alt="" class="hexagon"></img>
-                <img src={hex} alt="" class="hexagon"></img>
+                <div className="board">
+                    <div className="hex-row">
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    </div>
+                    <div className="hex-row">
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    </div>
+                    <div className="hex-row">
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    </div>
+                    <div className="hex-row">
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    </div>
+                    <div className="hex-row">
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    </div>
+                    <div className="hex-row">
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    </div>
+                    <div className="hex-row">
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    </div>
+                    <div className="hex-row">
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    <img src={hex} alt="" class="hexagon"></img>
+                    </div>
                 </div>
-                <MyButton />
             </header>
         </div>
     );

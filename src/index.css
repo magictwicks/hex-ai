@@ -1,3 +1,7 @@
+:root {
+    --margin-value: -8px;
+    --top-margin: -2%;
+}
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -22,7 +26,41 @@ code {
 .hex-row {
     display: flex;
     justify-content: flex-start;
+    margin-top: var(--top-margin);
+    margin-bottom: var(--top-margin);
 }
 .hex-row > * {
-    margin-right: -2%; /* Adjust the margin value as needed */
+    margin-right: var(--margin-value); /* Adjust the margin value as needed */
+    margin-left: var(--margin-value); /* Adjust the margin value as needed */
+}
+
+.board{
+    display: flex;
+    flex-direction: column;
+}
+
+.hex-row:nth-child(2){
+    margin-left: 6.25%;
+}
+.hex-row:nth-child(3){
+    margin-left: 12.5%;
+}
+.hex-row:nth-child(4){
+    margin-left: 18.75%;
+}
+.hex-row:nth-child(5){
+    margin-left: 25%;
+}
+.hex-row:nth-child(6){
+    margin-left: 31.25%;
+}
+.hex-row:nth-child(7){
+    margin-left: 37.5%;
+}
+.hex-row:nth-child(8){
+    margin-left: 43.75%;
+}
+
+.board{
+    margin-right: 20%;
 }
