@@ -1,18 +1,14 @@
 // import logo from './logo.svg';
+import Board from './components/hexagon.js'
 import './App.css';
-import hex from './hexagon-geometrical-shape-outline-svgrepo-com.svg'
+import hex from './svg/hexagon-geometrical-shape-outline-svgrepo-com.svg'
 // import { useState } from 'react';
-
-function MyButton(){
-    return(
-    <button>This is my button</button>
-    );
-}
 
 function App() {
     return (
         <div className="App">
             <header className="App-header">
+                <Board />
                 <div className="board">
                     <div className="hex-row">
                     <img src={hex} alt="" class="hexagon"></img>

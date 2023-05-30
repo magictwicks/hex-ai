@@ -17,7 +17,6 @@ code {
 }
 
 .hexagon {
-    transform: rotate(30deg);
     width: 100px;
     height: 100px;
 }
