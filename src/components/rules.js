@@ -1,6 +1,6 @@
 export default function Rules () {
     return (
-        <div>
+        <div class="rules">
             <h2>Hex Rules:</h2>
             <ol>
                 <li>Each player will have a color, either red or blue.</li>

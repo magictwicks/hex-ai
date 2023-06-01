@@ -81,6 +81,7 @@ code {
 }
 
 .hud-container {
+    border: 2px solid black;
     display: grid;
     align-self: center;
     width: 20vw;
@@ -101,6 +102,9 @@ h1 {
     color: black;
 }
 .modal {
+    border: 2px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
     position: absolute;
     background-color: rgb(243, 236, 236);
     border-radius: 15px;
@@ -124,4 +128,8 @@ h1 {
 
 .display-none {
     display: none;
+}
+
+.rules ol{
+    text-align: left;
 }
