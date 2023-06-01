@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Hexagon from './hexagon.js';
 
 const Color = {
@@ -52,9 +51,7 @@ function updateTiles(board, row, col, turn){
 }
 
 
-export default function Board({setWinState}){
-    const [board, setBoard] = useState(Array(8).fill(0).map(() => Array(8).fill(0)));
-    const [turn, takeTurn] = useState(Color.BLUE);
+export default function Board({board, setBoard, turn, takeTurn, setWinState}){
 
     function hexClicked(row, col){  
 
@@ -65,8 +62,7 @@ export default function Board({setWinState}){
         // deep copy of 2d board array
         let newBoard = board.map((innerArray) => [...innerArray]);
 
-        updateTiles(newBoard, row, col, turn, setWinState);
-        console.log(board);
+        updateTiles(newBoard, row, col, turn);
 
         // re-renders the board
         setBoard(newBoard);
@@ -74,9 +70,13 @@ export default function Board({setWinState}){
 
         //Checks for a winner
         for (let i = 0; i < 8; i++){
-            if(newBoard[7][i] === Color.BLUE_PATH || newBoard[i][7] === Color.RED_PATH){
-                setWinState(true);
-                break;
+            if(newBoard[7][i] === Color.BLUE_PATH){
+                setWinState(Color.BLUE);
+                return;
+            }
+            if(newBoard[i][7] === Color.RED_PATH){
+                setWinState(Color.RED);
+                return;
             }
         }
     }

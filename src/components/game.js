@@ -5,9 +5,15 @@ import Rules from "./rules";
 
 import { useState } from "react";
 
+function winnerString(winner){
+    return (winner === 1) ? "Blue Won!" : "Red Won!";
+}
+
 export default function Game (){
     const [show, setVisible] = useState(false);
-    const [hasWon, setWinner] = useState(false)
+    const [winner, setWinner] = useState(false)
+    const [board, setBoard] = useState(Array(8).fill(0).map(() => Array(8).fill(0)));
+    const [turn, takeTurn] = useState(1); //1 Corresponds to Blue moving first
 
     // sets rules modal to show or not
     function showModal() {
@@ -22,13 +28,13 @@ export default function Game (){
     return (
         <div class="game-container">
             <div class="hud-container">
-                <Hud showRules={showModal}/>
+                <Hud showRules={showModal} turn={turn}/>
             </div>
             <div class="board-container">
-                <Board setWinState={setWinner}/>
+                <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} setWinState={setWinner}/>
             </div>
             <Modal content={<Rules/>} show={show} hideModal={hideModal} /> 
-            <Modal content={<p>Someone Won</p>} show={hasWon} hideModal={hideModal} />
+            <Modal content={<p>{winnerString(winner)}</p>} show={winner} hideModal={hideModal} />
         </div>
     );
 }
