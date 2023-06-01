@@ -80,12 +80,13 @@ code {
 }
 
 .hud-container {
-    display: flex;
+    display: grid;
     align-self: center;
     width: 20vw;
     height: 80vh;
     background-color: rgb(88, 207, 171);
     margin-left: 2vw;
+    border-radius: 10px;
 }
 
 .hud-container > * {
@@ -100,13 +101,14 @@ h1 {
     width: 60vw;
     height: 40vh;
     position: absolute;
-    background-color: lightgrey;
-    border-radius: 25px;
+    background-color: rgb(243, 236, 236);
+    border-radius: 15px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); align-self: center;
     justify-self: center;
     display: flex;
+    color: darkslategrey;
 }
 
 .modal-close {
