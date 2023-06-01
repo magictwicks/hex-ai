@@ -1,12 +1,9 @@
-import hex from '../svg/hexagon-geometrical-shape-outline-svgrepo-com.svg'
-import blueHex from'../svg/hexagon-geometrical-shape-outline-svgrepo-com-blue.svg' 
-import redHex from '../svg/hexagon-geometrical-shape-outline-svgrepo-com-red.svg'
-import tRed from '../svg/transparent_red.svg'
-import tBlue from '../svg/transparent_blue.svg'
-import tPurp from '../svg/transparent_purple.svg'
-
-
-import { useState } from 'react'
+import hex from '../assets/hexagon-geometrical-shape-outline-svgrepo-com.svg'
+import blueHex from'../assets/hexagon-geometrical-shape-outline-svgrepo-com-blue.svg' 
+import redHex from '../assets/hexagon-geometrical-shape-outline-svgrepo-com-red.svg'
+import tRed from '../assets/transparent_red.svg'
+import tBlue from '../assets/transparent_blue.svg'
+import tPurp from '../assets/transparent_purple.svg'
 
 export default function Hexagon( {color, hexClicked, coords} ){ 
     

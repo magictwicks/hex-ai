@@ -1,8 +1,3 @@
-import { useState } from "react";
-import Modal from "./modal";
-import Rules from "./rules";
-
-
 export default function Hud({ showRules }){
 
   return(
