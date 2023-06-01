@@ -125,7 +125,17 @@ code {
 .modal-close {
     position: absolute;
     right: 3%;
-    top: 3%
+    top: 3%;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: 3px solid black;
+    font-size: xx-large;
+    border-radius: 25px; 
+}
+
+.modal-close:hover{
+    background-color: rgb(182, 182, 182);
 }
 
 .display-block {
