@@ -52,7 +52,7 @@ function updateTiles(board, row, col, turn){
 }
 
 
-export default function Board({setWinState}){
+export default function Board({setWinState, showEdges}){
     const [board, setBoard] = useState(Array(8).fill(0).map(() => Array(8).fill(0)));
     const [turn, takeTurn] = useState(Color.BLUE);
 

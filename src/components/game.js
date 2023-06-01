@@ -8,6 +8,7 @@ import { useState } from "react";
 export default function Game (){
     const [show, setVisible] = useState(false);
     const [hasWon, setWinner] = useState(false)
+    const [showEdges, setEdges] = useState(true)
 
     // sets rules modal to show or not
     function showModal() {
@@ -19,13 +20,14 @@ export default function Game (){
         setWinner(false)
     }
 
+
     return (
         <div class="game-container">
-            <div class="hud-container">
+            <div class="hud-container" onMouseOver={() => setEdges(true)} onMouseLeave={() => setEdges(false)}>
                 <Hud showRules={showModal}/>
             </div>
             <div class="board-container">
-                <Board setWinState={setWinner}/>
+                <Board setWinState={setWinner} showEdges={showEdges}/>
             </div>
             <Modal content={<Rules/>} show={show} hideModal={hideModal} /> 
             <Modal content={<p>Someone Won</p>} show={hasWon} hideModal={hideModal} />
