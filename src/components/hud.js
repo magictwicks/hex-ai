@@ -1,9 +1,12 @@
+import { Fragment } from "react"
+
 export default function Hud({ showRules }){
 
   return(
-  <div>
-    <h1>HEX</h1>
-    <button onClick={showRules}>Click here for rules</button>
-  </div>
+  <Fragment>
+    <h1 class="title">HEX</h1>
+    <button onClick={showRules}>How To Play</button>
+    <button>Reset Board</button>
+  </Fragment>
     );
 }
