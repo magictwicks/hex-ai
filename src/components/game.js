@@ -28,7 +28,7 @@ export default function Game (){
     return (
         <div class="game-container">
             <div class="hud-container">
-                <Hud showRules={showModal} turn={turn}/>
+                <Hud showRules={showModal} turn={turn} setBoard={setBoard}/>
             </div>
             <div class="board-container">
                 <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} setWinState={setWinner}/>
