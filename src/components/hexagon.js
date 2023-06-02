@@ -36,7 +36,7 @@ export default function Hexagon( {color, hexClicked, coords, showEdges} ){
         return hex;
     }
     return(
-        <img src={toImage(color)} alt="" class="hexagon" onClick={hexClicked}></img>
+        <img src={toImage(color)} alt="" class="hexagon" onClick={hexClicked} ></img>
     );
     
 }

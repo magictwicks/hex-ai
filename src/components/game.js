@@ -14,6 +14,8 @@ export default function Game (){
     const [winner, setWinner] = useState(false)
     const [board, setBoard] = useState(Array(8).fill(0).map(() => Array(8).fill(0)));
     const [turn, takeTurn] = useState(1); //1 Corresponds to Blue moving first
+    const [showEdges, setEdges] = useState(true);
+
 
     // sets rules modal to show or not
     function showModal() {
@@ -29,10 +31,10 @@ export default function Game (){
     return (
         <div class="game-container">
             <div class="hud-container">
-                <Hud showRules={showModal} turn={turn} setBoard={setBoard}/>
+                <Hud showRules={showModal} turn={turn} setBoard={setBoard} setEdges={setEdges}/>
             </div>
             <div class="board-container">
-                <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} setWinState={setWinner}/>
+                <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} setWinState={setWinner} setEdges={setEdges} showEdges={showEdges}/>
             </div>
             <Modal content={<Rules/>} show={show} hideModal={hideModal} /> 
             <Modal content={<p>{winnerString(winner)}</p>} show={winner} hideModal={hideModal} />
