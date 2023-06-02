@@ -11,7 +11,7 @@ export default function Hud({ showRules, turn, setBoard, setEdges}){
   return(
   <Fragment>
     <h1 class="title">HEX</h1>
-      <button onClick={showRules}>Testing github site</button>
+      <button onClick={showRules}>How To Play</button>
       <button onClick={
         () => {
           setBoard(Array(8).fill(0).map(() => Array(8).fill(0))); 
