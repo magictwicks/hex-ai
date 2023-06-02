@@ -1,5 +1,4 @@
 import Hexagon from './hexagon.js';
-import { useState } from 'react';
 
 const Color = {
     BLUE : 1,
@@ -52,11 +51,12 @@ function updateTiles(board, row, col, turn){
 }
 
 
-export default function Board({board, setBoard, turn, takeTurn, setWinState, setEdges, showEdges}){
+export default function Board({board, setBoard, turn, takeTurn, winner, setWinState, setEdges, showEdges}){
 
     function hexClicked(row, col){  
 
-        if (board[row][col] !== 0){
+        // Don't do anything if the game is not going
+        if (board[row][col] !== 0 || winner !== 0){
             return;
         }
 

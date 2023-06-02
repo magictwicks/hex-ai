@@ -6,7 +6,7 @@ function turnHex(turn){
     return (turn === 1) ? blueHex : redHex;
 }
 
-export default function Hud({ showRules, turn, setBoard, setEdges}){
+export default function Hud({ showRules, turn, takeTurn, setBoard, setEdges, setWinner}){
 
   return(
   <Fragment>
@@ -16,6 +16,8 @@ export default function Hud({ showRules, turn, setBoard, setEdges}){
         () => {
           setBoard(Array(8).fill(0).map(() => Array(8).fill(0))); 
           setEdges(true);
+          takeTurn(1); //Set turn to blue
+          setWinner(0); //Make the board clickable again
         }}>Reset Board</button>
     <img src={turnHex(turn)} alt="Failed to display"></img>
   </Fragment>
