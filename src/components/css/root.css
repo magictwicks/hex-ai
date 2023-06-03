@@ -1,0 +1,10 @@
+:root {
+    --hex-size: 8vh;
+    --side-margin: -2.5%;
+    --top-margin: -9%;
+}
+
+@font-face {
+    font-family: aaargh;
+    src: url('../../assets/Aaargh.ttf');
+}

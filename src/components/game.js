@@ -1,7 +1,9 @@
+import './css/game.css'
 import Board from "./board";
 import Hud from "./hud.js";
 import Modal from "./modal";
 import Rules from "./rules";
+import DisplayMenu from "./mob_display_menu";
 
 import { useState } from "react";
 
@@ -37,6 +39,7 @@ export default function Game (){
             </div>
             <Modal content={<Rules/>} show={show} hideModal={hideModal} /> 
             <Modal content={<p>{winnerString(winner)}</p>} show={winner} hideModal={hideModal} />
+            <DisplayMenu/>
         </div>
     );
 }

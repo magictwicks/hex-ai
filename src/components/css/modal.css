@@ -1,0 +1,31 @@
+@import url('./root.css');
+
+.modal {
+    border: 5px solid rgb(4, 72, 104);
+    padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    background-color: rgb(243, 236, 236);
+    border-radius: 5px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); align-self: center;
+    justify-self: center;
+    display: flex;
+    color: darkslategrey;
+    font-family: aaargh;
+}
+
+.modal-close {
+    position: absolute;
+    right: 3%;
+    top: 3%
+}
+
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
+}

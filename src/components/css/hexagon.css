@@ -1,0 +1,9 @@
+@import url('./root.css');
+
+.hexagon {
+    width: var(--hex-size);
+    height: var(--hex-size);
+    margin-right: calc(-1 * var(--hex-size));
+    margin-left: calc(-0.85 * var(--hex-size));
+    margin-top: calc(-0.26 * var(--hex-size));
+}

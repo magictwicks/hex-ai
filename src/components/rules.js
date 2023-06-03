@@ -1,3 +1,5 @@
+import './css/rules.css'
+
 export default function Rules () {
     return (
         <div class="rules">

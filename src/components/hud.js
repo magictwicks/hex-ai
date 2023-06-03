@@ -1,3 +1,4 @@
+import './css/hud.css'
 import { Fragment } from "react"
 import redHex from "../assets/hexagon-geometrical-shape-outline-svgrepo-com-red.svg"
 import blueHex from "../assets/hexagon-geometrical-shape-outline-svgrepo-com-blue.svg"
