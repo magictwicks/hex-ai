@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 import { Range } from 'react-range';
+import './css/slider.css'
 
-const Slider = () => {
+function Slider ({setBoard}) {
   const [values, setValues] = useState([8]);
 
   const handleChange = (newValues) => {
+    const newBoard = Array(newValues[0]).fill(0).map(() => Array(newValues[0]).fill(0));
     setValues(newValues);
+    setBoard(newBoard);
+    document.documentElement.style.setProperty('--hex-size', `${120.0 / (2 * newValues[0])}vh`);
   };
 
   return (
     <div>
-      <div style={{ marginTop: '-25%'}}>
-        Selected Value: {values[0]}
+      <div class="slider-text">
+        Board Size: {values[0] + "x" + values[0]}
       </div>
       <Range
         values={values}
         step={1}
-        min={0}
+        min={1}
         max={12}
         onChange={handleChange}
         renderTrack={({ props, children }) => (
