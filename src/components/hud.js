@@ -15,7 +15,7 @@ export default function Hud({ showRules, turn, takeTurn, board, setBoard, setEdg
 			<button class="close" onClick={() => setHUD(false)}>X</button>
 			<h1 class="title">HEX</h1>
 			<button onClick={showRules} class="fancy">How To Play</button>
-			<Slider setBoard={setBoard}></Slider>  
+			<Slider setBoard={setBoard} setEdges={setEdges} takeTurn={takeTurn} setWinner={setWinner}></Slider>  
 			<button onClick={
 				() => {
 				const currentSize = board.length;

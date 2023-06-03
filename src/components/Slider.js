@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { Range } from 'react-range';
 import './css/slider.css'
 
-function Slider ({setBoard}) {
+function Slider ({setBoard, setEdges, takeTurn, setWinner}) {
   const [values, setValues] = useState([8]);
 
   const handleChange = (newValues) => {
     const newBoard = Array(newValues[0]).fill(0).map(() => Array(newValues[0]).fill(0));
     setValues(newValues);
     setBoard(newBoard);
+    setEdges(true);
+    setWinner(0);
+    takeTurn(1);
     document.documentElement.style.setProperty('--hex-size', `${120.0 / (2 * newValues[0])}vh`);
   };
 
