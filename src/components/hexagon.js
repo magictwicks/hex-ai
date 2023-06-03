@@ -1,3 +1,6 @@
+import './css/hexagon.css'
+
+// asset imports
 import hex from '../assets/hexagon-geometrical-shape-outline-svgrepo-com.svg'
 import blueHex from'../assets/hexagon-geometrical-shape-outline-svgrepo-com-blue.svg' 
 import redHex from '../assets/hexagon-geometrical-shape-outline-svgrepo-com-red.svg'

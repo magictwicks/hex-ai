@@ -1,0 +1,9 @@
+@import url('./root.css');
+
+.rules ol{
+    text-align: left;
+}
+
+li {
+    padding-bottom: 2px;
+}

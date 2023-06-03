@@ -1,3 +1,4 @@
+import './css/board.css'
 import Hexagon from './hexagon.js';
 
 const Color = {

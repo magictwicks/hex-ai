@@ -1,0 +1,8 @@
+.display-menu {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+}

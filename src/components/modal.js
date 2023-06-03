@@ -1,3 +1,4 @@
+import './css/modal.css'
 
 function Modal({content, show, hideModal}){
     const showClass = show ? "modal display-block" : "modal display-none"  
