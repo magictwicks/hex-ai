@@ -19,6 +19,7 @@ export default function Game (){
     const [board, setBoard] = useState(Array(boardSize).fill(0).map(() => Array(boardSize).fill(0)));
     const [turn, takeTurn] = useState(1); //1 Corresponds to Blue moving first
     const [showEdges, setEdges] = useState(true);
+    const [showHUD, setHUD] = useState(true);
 
     // sets rules modal to show or not
     function showModal() {
@@ -35,7 +36,7 @@ export default function Game (){
             <BrowserView>
                 <div class="game-container">
                     <div class="hud-container">
-                        <Hud showRules={showModal} turn={turn} takeTurn={takeTurn} board={board} setBoard={setBoard} setEdges={setEdges} setWinner={setWinner}/>
+                        <Hud showRules={showModal} turn={turn} takeTurn={takeTurn} board={board} setBoard={setBoard} setEdges={setEdges} setWinner={setWinner} showHUD={true}/>
                     </div>
                     <div class="desktop board-container">
                         <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} winner={winner} setWinState={setWinner} setEdges={setEdges} showEdges={showEdges} boardSize={boardSize}/>
@@ -46,15 +47,19 @@ export default function Game (){
             </BrowserView>
             <MobileView>
                 <div class='mobile game-container'>
-                    <DisplayMenu/>
-                    <div class="mobile hud-container">
-                        <Hud showRules={showModal} turn={turn} takeTurn={takeTurn} board={board} setBoard={setBoard} setEdges={setEdges} setWinner={setWinner}/>
+                    <DisplayMenu showHUD={showHUD} setHUD={setHUD}/>
+                    <div class={"mobile hud-container " + showHUD}>
+                        <Hud showRules={showModal} turn={turn} takeTurn={takeTurn} board={board} setBoard={setBoard} setEdges={setEdges} setWinner={setWinner} showHUD={showHUD} setHUD={setHUD}/>
                     </div>
                     <div class="mobile board-container">
                         <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} winner={winner} setWinState={setWinner} setEdges={setEdges} showEdges={showEdges} boardSize={boardSize}/>
                     </div>
+                    <div class="mobile">
+                        <Modal content={<Rules/>} show={show} hideModal={hideModal} /> 
+                        <Modal content={<p>{winnerString(winner)}</p>} show={winner} hideModal={hideModal} />    
+                    </div>
                 </div> 
-            </MobileView>
+            </MobileView >
         </Fragment>
 
     );

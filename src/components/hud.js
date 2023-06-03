@@ -8,22 +8,23 @@ function turnHex(turn){
     return (turn === 1) ? blueHex : redHex;
 }
 
-export default function Hud({ showRules, turn, takeTurn, board, setBoard, setEdges, setWinner}){
+export default function Hud({ showRules, turn, takeTurn, board, setBoard, setEdges, setWinner, setHUD}){	
 
-  return(
-  <Fragment>
-    <h1 class="title">HEX</h1>
-      <button onClick={showRules}>How To Play</button>
-      <Slider setBoard={setBoard}></Slider>  
-      <button onClick={
-        () => {
-          const currentSize = board.length;
-          setBoard(Array(currentSize).fill(0).map(() => Array(currentSize).fill(0))); 
-          setEdges(true);
-          takeTurn(1); //Set turn to blue
-          setWinner(0); //Make the board clickable again
-        }}>Reset Board</button>
-    <img src={turnHex(turn)} alt="Failed to display"></img>
-  </Fragment>
+  	return(
+  	<Fragment>
+			<button class="close" onClick={() => setHUD(false)}>X</button>
+			<h1 class="title">HEX</h1>
+			<button onClick={showRules} class="fancy">How To Play</button>
+			<Slider setBoard={setBoard}></Slider>  
+			<button onClick={
+				() => {
+				const currentSize = board.length;
+				setBoard(Array(currentSize).fill(0).map(() => Array(currentSize).fill(0))); 
+				setEdges(true);
+				takeTurn(1); //Set turn to blue
+				setWinner(0); //Make the board clickable again
+				}} class="fancy">Reset Board</button>
+			<img src={turnHex(turn)} alt="Failed to display"></img>
+  	</Fragment>
     );
 }

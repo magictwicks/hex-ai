@@ -29,3 +29,9 @@
 .display-none {
     display: none;
 }
+
+.mobile .modal {
+    width: fit-content;
+    height: fit-content;
+    z-index: 2;
+}

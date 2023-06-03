@@ -79,7 +79,7 @@
     margin: auto;
 }
 
-.hud-container button {
+.hud-container .fancy {
     background-color: white;
     border: 3px solid black;
     font-size: x-large;
@@ -92,4 +92,8 @@
 }
 .hud-container button:hover {
     background-color: rgb(182, 182, 182);
+}
+
+.hud-container.false {
+    display: none;
 }

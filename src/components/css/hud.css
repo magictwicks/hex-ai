@@ -1,1 +1,16 @@
 @import url('./root.css');
+
+.mobile .close {
+    display: inline-block;
+    position: absolute;
+    top: 1%;
+    right: 2.5%;
+}
+
+.close {
+    display: none;
+}
+
+.mobile .button {
+
+}
