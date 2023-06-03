@@ -12,6 +12,7 @@ function winnerString(winner){
 }
 
 export default function Game (){
+
     const boardSize = 8
     const [show, setVisible] = useState(false);
     const [winner, setWinner] = useState(0)
@@ -37,7 +38,7 @@ export default function Game (){
                         <Hud showRules={showModal} turn={turn} takeTurn={takeTurn} board={board} setBoard={setBoard} setEdges={setEdges} setWinner={setWinner}/>
                     </div>
                     <div class="desktop board-container">
-                        <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} winner={winner} setWinState={setWinner} setEdges={setEdges} showEdges={showEdges} boardSize={BOARD_SIZE}/>
+                        <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} winner={winner} setWinState={setWinner} setEdges={setEdges} showEdges={showEdges} boardSize={boardSize}/>
                     </div>
                     <Modal content={<Rules/>} show={show} hideModal={hideModal} /> 
                     <Modal content={<p>{winnerString(winner)}</p>} show={winner} hideModal={hideModal} />
@@ -50,7 +51,7 @@ export default function Game (){
                         <Hud showRules={showModal} turn={turn} takeTurn={takeTurn} board={board} setBoard={setBoard} setEdges={setEdges} setWinner={setWinner}/>
                     </div>
                     <div class="mobile board-container">
-                        <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} winner={winner} setWinState={setWinner} setEdges={setEdges} showEdges={showEdges} boardSize={BOARD_SIZE}/>
+                        <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} winner={winner} setWinState={setWinner} setEdges={setEdges} showEdges={showEdges} boardSize={boardSize}/>
                     </div>
                 </div> 
             </MobileView>
