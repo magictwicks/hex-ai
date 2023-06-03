@@ -9,7 +9,8 @@ const Color = {
 } 
 
 
-export default function Board({board, setBoard, turn, takeTurn, winner, setWinState, setEdges, showEdges, boardSize}){
+export default function Board({board, setBoard, turn, takeTurn, winner, setWinState, setEdges, showEdges}){
+    const boardSize = board.length;
 
     function hexClicked(row, col){  
 
