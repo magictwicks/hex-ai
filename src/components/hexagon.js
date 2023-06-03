@@ -5,7 +5,7 @@ import tRed from '../assets/transparent_red.svg'
 import tBlue from '../assets/transparent_blue.svg'
 import tPurp from '../assets/transparent_purple.svg'
 
-export default function Hexagon( {color, hexClicked, coords, showEdges} ){ 
+export default function Hexagon( {color, hexClicked, coords, showEdges, boardSize} ){ 
     
     function toImage(colorValue){
         if (colorValue > 0){
@@ -18,18 +18,18 @@ export default function Hexagon( {color, hexClicked, coords, showEdges} ){
         if (showEdges){    
             const corners = [
                 "0,0",
-                "0,7",
-                "7,0",
-                "7,7"  
+                "0," + (boardSize - 1).toString(),
+                (boardSize - 1).toString() + ",0",
+                (boardSize - 1).toString() + "," + (boardSize - 1).toString()
             ];
 
             if (corners.includes(coords.toString())){
                 return tPurp;
             }
-            if (coords[0] === 0 || coords[0] === 7){
+            if (coords[0] === 0 || coords[0] === boardSize - 1){
                 return tBlue;
             }
-            if (coords[1] === 0 || coords[1] === 7){
+            if (coords[1] === 0 || coords[1] === boardSize - 1){
                 return tRed;
             }
         }

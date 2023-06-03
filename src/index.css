@@ -1,8 +1,7 @@
 :root {
-
-    --hex-size: 100px;
-    --margin-value: -8px;
-    --top-margin: -2%;
+    --hex-size: 8vh;
+    --side-margin: -2.5%;
+    --top-margin: -9%;
 }
 body {
     margin: 0;
@@ -16,51 +15,6 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
-}
-
-.hexagon {
-    width: var(--hex-size);
-    height: var(--hex-size);
-}
-
-.hex-row {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: var(--top-margin);
-    margin-bottom: var(--top-margin);
-}
-.hex-row > * {
-    margin-right: var(--margin-value); /* Adjust the margin value as needed */
-    margin-left: var(--margin-value); /* Adjust the margin value as needed */
-}
-
-.board{
-    display: flex;
-    flex-direction: column;
-    margin-right: 20%;
-    justify-content: center;
-}
-
-.hex-row:nth-child(2){
-    margin-left: 6.25%;
-}
-.hex-row:nth-child(3){
-    margin-left: 12.5%;
-}
-.hex-row:nth-child(4){
-    margin-left: 18.75%;
-}
-.hex-row:nth-child(5){
-    margin-left: 25%;
-}
-.hex-row:nth-child(6){
-    margin-left: 31.25%;
-}
-.hex-row:nth-child(7){
-    margin-left: 37.5%;
-}
-.hex-row:nth-child(8){
-    margin-left: 43.75%;
 }
 
 .board-container {
@@ -178,5 +132,28 @@ li {
 @font-face {
     font-family: aaargh;
     src: url('./assets/Aaargh.ttf');
+}
+
+.board{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20%;
+    justify-content: center;
+}
+
+.hex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    /* width: fit-content; */
+}
+
+.hexagon {
+    width: var(--hex-size);
+    height: var(--hex-size);
+    margin-right: calc(-1 * var(--hex-size));
+    margin-left: calc(-0.85 * var(--hex-size));
+    margin-top: calc(-0.26 * var(--hex-size));
 }
 
