@@ -3,8 +3,9 @@
 .board{
     display: flex;
     flex-direction: column;
-    margin-right: 20%;
     justify-content: center;
+    width: 100%;
+    
 }
 
 .hex-row {

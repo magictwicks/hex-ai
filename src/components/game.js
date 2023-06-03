@@ -4,8 +4,8 @@ import Hud from "./hud.js";
 import Modal from "./modal";
 import Rules from "./rules";
 import DisplayMenu from "./mob_display_menu";
-
-import { useState } from "react";
+import {BrowserView, MobileView} from 'react-device-detect';
+import { useState, Fragment} from "react";
 
 function winnerString(winner){
     return (winner === 1) ? "Blue Won!" : "Red Won!";
@@ -30,16 +30,31 @@ export default function Game (){
     }
 
     return (
-        <div class="game-container">
-            <div class="hud-container">
-                <Hud showRules={showModal} turn={turn} takeTurn={takeTurn} setBoard={setBoard} setEdges={setEdges} setWinner={setWinner}/>
-            </div>
-            <div class="board-container">
-                <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} winner={winner} setWinState={setWinner} setEdges={setEdges} showEdges={showEdges} boardSize={BOARD_SIZE}/>
-            </div>
-            <Modal content={<Rules/>} show={show} hideModal={hideModal} /> 
-            <Modal content={<p>{winnerString(winner)}</p>} show={winner} hideModal={hideModal} />
-            <DisplayMenu/>
-        </div>
+        <Fragment>
+            <BrowserView>
+                <div class="game-container">
+                    <div class="hud-container">
+                        <Hud showRules={showModal} turn={turn} takeTurn={takeTurn} setBoard={setBoard} setEdges={setEdges} setWinner={setWinner}/>
+                    </div>
+                    <div class="desktop board-container">
+                        <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} winner={winner} setWinState={setWinner} setEdges={setEdges} showEdges={showEdges} boardSize={BOARD_SIZE}/>
+                    </div>
+                    <Modal content={<Rules/>} show={show} hideModal={hideModal} /> 
+                    <Modal content={<p>{winnerString(winner)}</p>} show={winner} hideModal={hideModal} />
+                </div>
+            </BrowserView>
+            <MobileView>
+                <div class='mobile game-container'>
+                    <DisplayMenu/>
+                    <div class="mobile hud-container">
+                        <Hud showRules={showModal} turn={turn} takeTurn={takeTurn} setBoard={setBoard} setEdges={setEdges} setWinner={setWinner}/>
+                    </div>
+                    <div class="mobile board-container">
+                        <Board board={board} setBoard={setBoard} turn={turn} takeTurn={takeTurn} winner={winner} setWinState={setWinner} setEdges={setEdges} showEdges={showEdges} boardSize={BOARD_SIZE}/>
+                    </div>
+                </div> 
+            </MobileView>
+        </Fragment>
+
     );
 }

@@ -1,5 +1,20 @@
 @import url('./root.css');
 
+.mobile.board-container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.mobile.game-container {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: scroll;
+    justify-content: center;
+    align-items: center;
+}
+
 .board-container {
     display: flex;
     width: 70vw;
@@ -15,6 +30,14 @@
     /* background-color: rgb(156, 225, 201); */
     background-color: white;
     flex-direction: row;
+    
+}
+
+.mobile.hud-container {
+    display: flex;
+    position: absolute;
+    width: 90%;
+    height: 90%;
 }
 
 .hud-container {

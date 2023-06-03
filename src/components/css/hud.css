@@ -1,2 +1,6 @@
 @import url('./root.css');
 
+.mobile {
+    display: inline-block;
+}
+
